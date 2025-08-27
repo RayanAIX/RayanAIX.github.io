@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muhammad Rayan Shahid — AI/ML Engineer</title>
+  <meta name="description" content="Portfolio of Muhammad Rayan Shahid (RayanAIX) — AI/ML Engineer. Projects in Computer Vision, NLP, and Predictive Modeling. Freelance services, case studies, and contact." />
+  <meta property="og:title" content="Muhammad Rayan Shahid — AI/ML Engineer" />
+  <meta property="og:description" content="AI/ML portfolio: projects, services, case studies, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://RayanAIX.github.io" />
+  <meta property="og:image" content="https://RayanAIX.github.io/assets/og-cover.jpg" />
+  <link rel="icon" href="/assets/favicon.svg" />
+
+  <!-- Tailwind Play CDN (no build step, works on GitHub Pages) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#eef9ff', 100: '#d9f1ff', 200: '#b3e3ff', 300: '#85d3ff', 400: '#4fbaff', 500: '#1e98ff', 600: '#0f78e0', 700: '#0b5fb3', 800: '#0a4d8e', 900: '#0a3f73'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Smooth fade & slide on load */
+    [data-animate] { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+    [data-animate].in { opacity: 1; transform: translateY(0); }
+    /* Nice gradient ring for avatar */
+    .ring-gradient { box-shadow: 0 0 0 3px rgba(30,152,255,.35); }
+    /* Glass card */
+    .glass { background: rgba(255,255,255,.7); backdrop-filter: blur(8px); }
+    .glass-dark { background: rgba(17,24,39,.6); backdrop-filter: blur(8px); }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="font-body antialiased bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <!-- ===== Header / Nav ===== -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-slate-950/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 supports-[backdrop-filter]:dark:bg-slate-950/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#home" class="flex items-center gap-2 group">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-indigo-600 text-white font-bold">AI</span>
+          <span class="font-display text-lg font-semibold tracking-tight">ByteBrilliance AI — Rayan</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#services" class="hover:text-brand-600">Services</a>
+          <a href="#projects" class="hover:text-brand-600">Projects</a>
+          <a href="#case-studies" class="hover:text-brand-600">Case Studies</a>
+          <a href="#about" class="hover:text-brand-600">About</a>
+          <a href="#contact" class="hover:text-brand-600">Contact</a>
+          <button id="themeToggle" aria-label="Toggle dark mode" class="ml-2 p-2 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900">
+            <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.707-.707M6.343 6.343l-.707-.707m12.728 0-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>
+          </button>
+          <a href="#contact" class="px-4 py-2 rounded-xl bg-brand-600 text-white font-medium hover:bg-brand-700">Hire Me</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800">
+      <div class="px-4 py-3 space-y-2 bg-white dark:bg-slate-950">
+        <a href="#services" class="block">Services</a>
+        <a href="#projects" class="block">Projects</a>
+        <a href="#case-studies" class="block">Case Studies</a>
+        <a href="#about" class="block">About</a>
+        <a href="#contact" class="block">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute -top-24 -right-24 h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-brand-400/30 via-indigo-400/20 to-fuchsia-400/20 blur-3xl"></div>
+      <div class="absolute -bottom-32 -left-24 h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-emerald-400/20 via-brand-400/20 to-cyan-400/20 blur-3xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div data-animate>
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-brand-50 text-brand-700 ring-1 ring-brand-200">Available for AI/ML projects</span>
+          <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">Hi, I’m <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">Muhammad Rayan Shahid</span>.</h1>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">I design, train, and deploy <span class="font-semibold">Machine Learning</span> models — from Computer Vision and NLP to predictive analytics — to solve real business problems.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#projects" class="px-5 py-3 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-semibold hover:opacity-90">View Projects</a>
+            <a href="#contact" class="px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 font-semibold hover:bg-slate-100 dark:hover:bg-slate-900">Get in Touch</a>
+          </div>
+          <div class="mt-6 flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+            <a href="https://github.com/RayanAIX" target="_blank" class="hover:text-brand-600">GitHub</a>
+            <a href="https://www.kaggle.com/muhammadrayanshahid" target="_blank" class="hover:text-brand-600">Kaggle</a>
+            <a href="https://www.linkedin.com/in/muhammadrayanshahid/" target="_blank" class="hover:text-brand-600">LinkedIn</a>
+            <a href="https://www.youtube.com/@ByteBrillianceAI" target="_blank" class="hover:text-brand-600">YouTube</a>
+            <a href="https://x.com/MRayanShahid" target="_blank" class="hover:text-brand-600">X (Twitter)</a>
+          </div>
+        </div>
+        <div class="flex justify-center lg:justify-end" data-animate>
+          <div class="relative">
+            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-500 to-indigo-600 blur opacity-30"></div>
+            <img src="https://avatars.githubusercontent.com/u/" alt="Your avatar placeholder" class="relative ring-gradient h-64 w-64 rounded-3xl object-cover object-center bg-slate-200 dark:bg-slate-800" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section id="services" class="py-16 sm:py-24 bg-white dark:bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl" data-animate>
+        <h2 class="text-3xl font-extrabold tracking-tight">Services</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Outcome-focused AI/ML solutions. I translate business problems into deployable models.</p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/40" data-animate>
+          <h3 class="font-semibold text-lg">Computer Vision</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Detection, classification, and tracking for real-world images/videos (YOLO, CNNs, transfer learning).</p>
+          <ul class="mt-3 text-sm list-disc list-inside text-slate-600 dark:text-slate-400">
+            <li>Object/Defect detection</li>
+            <li>Traffic/Sign recognition</li>
+            <li>Medical/Plant diagnosis</li>
+          </ul>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/40" data-animate>
+          <h3 class="font-semibold text-lg">NLP</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Text classification, summarization, and retrieval-augmented workflows tailored to domain data.</p>
+          <ul class="mt-3 text-sm list-disc list-inside text-slate-600 dark:text-slate-400">
+            <li>Spam/Fake news detection</li>
+            <li>Sentiment & topics</li>
+            <li>Q&A over docs</li>
+          </ul>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/40" data-animate>
+          <h3 class="font-semibold text-lg">Predictive Modeling</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Supervised/unsupervised ML for risk scoring, forecasting, and decision support.</p>
+          <ul class="mt-3 text-sm list-disc list-inside text-slate-600 dark:text-slate-400">
+            <li>Churn & risk models</li>
+            <li>Time-series forecasts</li>
+            <li>Custom training on client data</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects" class="py-16 sm:py-24 bg-slate-50 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl" data-animate>
+        <h2 class="text-3xl font-extrabold tracking-tight">Highlighted Projects</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Selected work. Each card links to code, write-ups, or a filtered view on GitHub.</p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Project Card Template -->
+        <a href="https://github.com/RayanAIX?tab=repositories&q=fake+news" target="_blank" class="group p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-1 hover:shadow-lg transition" data-animate>
+          <div class="flex items-start justify-between">
+            <h3 class="font-semibold">Fake News Detection (NLP)</h3>
+            <span class="text-xs text-slate-500">NLP</span>
+          </div>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Binary classifier to detect misinformation; metrics, pipeline, and dataset handling included.</p>
+          <div class="mt-4 flex gap-2 text-xs text-slate-500">
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">scikit-learn</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">TF-IDF</span>
+          </div>
+        </a>
+        <a href="https://github.com/RayanAIX?tab=repositories&q=emotion" target="_blank" class="group p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-1 hover:shadow-lg transition" data-animate>
+          <div class="flex items-start justify-between">
+            <h3 class="font-semibold">Emotion Classifier (CV)</h3>
+            <span class="text-xs text-slate-500">Computer Vision</span>
+          </div>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">CNN-based facial emotion recognition with training curves and evaluation dashboard.</p>
+          <div class="mt-4 flex gap-2 text-xs text-slate-500">
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Keras</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">OpenCV</span>
+          </div>
+        </a>
+        <a href="https://github.com/RayanAIX?tab=repositories&q=plant+disease" target="_blank" class="group p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-1 hover:shadow-lg transition" data-animate>
+          <div class="flex items-start justify-between">
+            <h3 class="font-semibold">Plant Disease Detection</h3>
+            <span class="text-xs text-slate-500">Computer Vision</span>
+          </div>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Image classifier for common crop diseases; transfer learning and augmentation.</p>
+          <div class="mt-4 flex gap-2 text-xs text-slate-500">
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Transfer Learning</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">PyTorch/TensorFlow</span>
+          </div>
+        </a>
+        <a href="https://github.com/RayanAIX?tab=repositories&q=traffic+sign" target="_blank" class="group p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-1 hover:shadow-lg transition" data-animate>
+          <div class="flex items-start justify-between">
+            <h3 class="font-semibold">Traffic Sign Recognition</h3>
+            <span class="text-xs text-slate-500">Computer Vision</span>
+          </div>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">GTSRB dataset with strong accuracy and robust preprocessing.</p>
+          <div class="mt-4 flex gap-2 text-xs text-slate-500">
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">GTSRB</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">CNN</span>
+          </div>
+        </a>
+        <a href="https://github.com/RayanAIX?tab=repositories&q=lane" target="_blank" class="group p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-1 hover:shadow-lg transition" data-animate>
+          <div class="flex items-start justify-between">
+            <h3 class="font-semibold">Road Lane Detection</h3>
+            <span class="text-xs text-slate-500">CV + OpenCV</span>
+          </div>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Classical + ML approach to robust lane detection on dashcam footage.</p>
+          <div class="mt-4 flex gap-2 text-xs text-slate-500">
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">OpenCV</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Python</span>
+          </div>
+        </a>
+        <a href="https://github.com/RayanAIX?tab=repositories&q=mask" target="_blank" class="group p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-1 hover:shadow-lg transition" data-animate>
+          <div class="flex items-start justify-between">
+            <h3 class="font-semibold">Face Mask Detector</h3>
+            <span class="text-xs text-slate-500">Computer Vision</span>
+          </div>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Deployed model to classify masked vs unmasked faces in real-time.</p>
+          <div class="mt-4 flex gap-2 text-xs text-slate-500">
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Realtime</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">TensorFlow</span>
+          </div>
+        </a>
+      </div>
+      <div class="mt-8" data-animate>
+        <a href="https://github.com/RayanAIX?tab=repositories" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Browse all repositories →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Case Studies ===== -->
+  <section id="case-studies" class="py-16 sm:py-24 bg-white dark:bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl" data-animate>
+        <h2 class="text-3xl font-extrabold tracking-tight">Case Studies</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Short, business-focused breakdowns. Replace with real client work as you go.</p>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 glass dark:glass-dark" data-animate>
+          <h3 class="font-semibold text-lg">Fake News Detection for Media Monitoring</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300"><strong>Problem:</strong> Manual verification was slow and inconsistent.
+          <br/><strong>Solution:</strong> Trained a TF‑IDF + linear model pipeline with calibrated thresholds.
+          <br/><strong>Result:</strong> ~92% accuracy on validation; reduced manual checks by ~60% in tests.</p>
+          <a href="https://github.com/RayanAIX?tab=repositories&q=fake+news" target="_blank" class="mt-3 inline-block text-brand-700 dark:text-brand-400 hover:underline">View code →</a>
+        </article>
+        <article class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 glass dark:glass-dark" data-animate>
+          <h3 class="font-semibold text-lg">Traffic Sign Recognition for Driver Assistance</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300"><strong>Problem:</strong> Need for accurate sign detection in embedded environments.
+          <br/><strong>Solution:</strong> Efficient CNN with data augmentation and quantization-aware training.
+          <br/><strong>Result:</strong> High accuracy on GTSRB and smooth inference on CPU.</p>
+          <a href="https://github.com/RayanAIX?tab=repositories&q=traffic+sign" target="_blank" class="mt-3 inline-block text-brand-700 dark:text-brand-400 hover:underline">View code →</a>
+        </article>
+      </div>
+      <div class="mt-8" data-animate>
+        <a href="/assets/case-study-template.pdf" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Download case study template (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="py-16 sm:py-24 bg-slate-50 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-8 items-start">
+      <div class="lg:col-span-2" data-animate>
+        <h2 class="text-3xl font-extrabold tracking-tight">About</h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300">I’m an AI/ML engineer from Karachi, focused on building practical models for Computer Vision, NLP, and classical ML. I love clean experiments, reproducible code, and translating business needs into measurable metrics.</p>
+        <ul class="mt-4 grid sm:grid-cols-2 gap-3 text-sm">
+          <li class="p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">• Python, PyTorch, TensorFlow, scikit‑learn</li>
+          <li class="p-3 rounded-xl bg-white dark:bg-slate-950 border">• CV: OpenCV, CNNs, YOLO, augmentation</li>
+          <li class="p-3 rounded-xl bg-white dark:bg-slate-950 border">• NLP: tokenization, TF‑IDF, RAG basics</li>
+          <li class="p-3 rounded-xl bg-white dark:bg-slate-950 border">• MLOps basics: notebooks → scripts, eval & reporting</li>
+        </ul>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="/assets/Muhammad_Rayan_Shahid_Resume.pdf" class="px-4 py-2 rounded-xl bg-brand-600 text-white font-medium hover:bg-brand-700">Download Resume</a>
+          <a href="https://www.kaggle.com/muhammadrayanshahid" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Kaggle Profile</a>
+        </div>
+      </div>
+      <div class="lg:col-span-1" data-animate>
+        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+          <h3 class="font-semibold">Content</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">I share AI news, tutorials, and project breakdowns.</p>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="hover:underline" href="https://www.youtube.com/@ByteBrillianceAI" target="_blank">YouTube: ByteBrilliance AI →</a></li>
+            <li><a class="hover:underline" href="https://x.com/MRayanShahid" target="_blank">X/Twitter: @MRayanShahid →</a></li>
+            <li><a class="hover:underline" href="https://www.linkedin.com/in/muhammadrayanshahid/" target="_blank">LinkedIn posts →</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="py-16 sm:py-24 bg-white dark:bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl" data-animate>
+        <h2 class="text-3xl font-extrabold tracking-tight">Contact</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Have an AI/ML problem to solve? Let’s talk.</p>
+      </div>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <form name="contact" class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900" onsubmit="sendMail(event)">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="block text-sm">Name<input id="name" required class="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950"/></label>
+            <label class="block text-sm">Email<input id="email" type="email" required class="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950"/></label>
+          </div>
+          <label class="block text-sm mt-4">Message<textarea id="message" rows="5" required class="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950"></textarea></label>
+          <button type="submit" class="mt-4 px-4 py-2 rounded-xl bg-brand-600 text-white font-medium hover:bg-brand-700">Send</button>
+          <p id="formStatus" class="mt-3 text-sm"></p>
+          <!-- Tip: For production use, plug into Formspree or EmailJS if desired. -->
+        </form>
+        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+          <h3 class="font-semibold">Connect</h3>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li>Email: <a id="mailto" class="text-brand-700 dark:text-brand-400 hover:underline" href="mailto:">m.rayanshahid5@gmail.com</a></li>
+            <li>GitHub: <a class="hover:underline" href="https://github.com/RayanAIX" target="_blank">github.com/RayanAIX</a></li>
+            <li>LinkedIn: <a class="hover:underline" href="https://www.linkedin.com/in/muhammadrayanshahid/" target="_blank">/in/muhammadrayanshahid</a></li>
+            <li>Kaggle: <a class="hover:underline" href="https://www.kaggle.com/muhammadrayanshahid" target="_blank">/muhammadrayanshahid</a></li>
+            <li>YouTube: <a class="hover:underline" href="https://www.youtube.com/@ByteBrillianceAI" target="_blank">@ByteBrillianceAI</a></li>
+            <li>X/Twitter: <a class="hover:underline" href="https://x.com/MRayanShahid" target="_blank">@MRayanShahid</a></li>
+          </ul>
+          <div class="mt-4 p-4 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 text-xs text-slate-500">Upload your resume to <code>/assets/Muhammad_Rayan_Shahid_Resume.pdf</code> and case study template to <code>/assets/case-study-template.pdf</code>. Replace avatar and OG image in <code>/assets/</code>.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="py-8 border-t border-slate-200 dark:border-slate-800 text-sm bg-slate-50/60 dark:bg-slate-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© <span id="year"></span> Muhammad Rayan Shahid. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="#home" class="hover:underline">Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ----- Animate on view -----
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('[data-animate]').forEach(el => io.observe(el));
+
+    // ----- Mobile menu -----
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // ----- Theme toggle (persist in localStorage) -----
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const applyTheme = () => {
+      const isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', isDark);
+      // simple icon switch: sun/moon via path replacement
+      themeIcon.innerHTML = isDark
+        ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.752 15.002A9.718 9.718 0 0 1 12.003 21 9.001 9.001 0 0 1 12 3a9.003 9.003 0 0 0 9.752 12.002Z" />'
+        : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.707-.707M6.343 6.343l-.707-.707m12.728 0-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />';
+    }
+    applyTheme();
+    themeToggle?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.theme = isDark ? 'light' : 'dark';
+      applyTheme();
+    });
+
+    // ----- Year in footer -----
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ----- Simple mailto contact fallback -----
+    function sendMail(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const addr = document.getElementById('mailto').getAttribute('href').replace('mailto:','');
+      if(!addr){
+        document.getElementById('formStatus').textContent = 'Set your email in the Contact section first.';
+        document.getElementById('formStatus').className = 'mt-3 text-sm text-red-600';
+        return;
+      }
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      window.location.href = `mailto:${addr}?subject=New inquiry from ${encodeURIComponent(name)}&body=${body}`;
+      document.getElementById('formStatus').textContent = 'Opening your email client...';
+      document.getElementById('formStatus').className = 'mt-3 text-sm text-emerald-600';
+    }
+  </script>
+
+  <!--
+  ========================== Quick Setup Notes ============================
+  1) Replace avatar: set the <img src> in the Hero to your avatar URL (GitHub avatar or local /assets/avatar.jpg). 
+  2) Add /assets files: favicon.svg, og-cover.jpg, Resume.pdf, case-study-template.pdf (create an /assets/ folder in repo root).
+  3) Update your email in the Contact section link id="mailto".
+  4) You can add more project cards by copying a card block in the Projects grid.
+  5) Deploy: Push this file as index.html to the repo RayanAIX.github.io → GitHub Pages will serve it.
+  ========================================================================
+  -->
+</body>
+</html>
