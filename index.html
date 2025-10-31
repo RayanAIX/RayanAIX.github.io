@@ -4,121 +4,68 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>RayanAIX — Empowering Intelligence</title>
-  <meta name="description" content="RayanAIX — Muhammad Rayan Shahid. AI/ML engineer | ByteBrilliance AI | Projects, Freelance Services, Kaggle & GitHub." />
-  <meta property="og:title" content="RayanAIX — Muhammad Rayan Shahid" />
-  <meta property="og:description" content="AI/ML engineer: Computer Vision, NLP, Predictive Modeling. Freelance services & case studies." />
+  <meta name="description" content="RayanAIX — Muhammad Rayan Shahid. AI/ML engineer, ByteBrilliance AI. Projects, Kaggle, freelance services." />
   <meta property="og:image" content="/assets/og-cover.jpg" />
   <link rel="icon" href="/assets/favicon.svg" />
-  <!-- Tailwind CDN (production-ready) -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- GSAP for advanced animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <style>
-    /* Design tokens */
     :root{
-      --accent-a:#00c6ff; /* neon cyan */
-      --accent-b:#0072ff; /* blue */
-      --glass: rgba(255,255,255,0.05);
-      --glass-2: rgba(255,255,255,0.03);
+      --bg:#05060a; --card: rgba(255,255,255,0.04);
+      --glow-a: #00d4ff; --glow-b: #0072ff;
       --muted:#94a3b8;
-      --bg:#07070a;
     }
-    html,body{height:100%}
-    body{
-      background: linear-gradient(180deg,#050508 0%, #0b0b0f 60%);
-      color:#e6eef8;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-    }
-
-    /* Animated gradient band */
-    .neon-band{
-      background: linear-gradient(90deg, rgba(0,198,255,.12), rgba(0,114,255,.08));
-      border-radius:999px;
-      border:1px solid rgba(0,114,255,0.08);
-      padding:4px;
-    }
-
-    /* Hero glass */
-    .hero-glass{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.04);
-      backdrop-filter: blur(10px);
-    }
-
-    /* subtle card hover */
-    .card {
-      background: var(--glass);
-      border: 1px solid rgba(255,255,255,0.04);
-      transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
-      will-change: transform;
-    }
-    .card:hover{
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 12px 40px rgba(2,6,23,0.6);
-    }
-
-    .accent-glow {
-      text-shadow: 0 6px 28px rgba(0,198,255,0.08), 0 2px 10px rgba(0,114,255,0.06);
-    }
-
-    /* animated reveal */
-    [data-reveal] { opacity:0; transform: translateY(18px); transition: all 600ms cubic-bezier(.2,.9,.3,1); }
-    [data-reveal].in{ opacity:1; transform:none; }
-
-    a.primary {
-      background: linear-gradient(90deg,var(--accent-a), var(--accent-b));
-      color: #021028;
-      font-weight: 600;
-      padding: 10px 18px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items:center;
-      gap:10px;
-      box-shadow: 0 10px 30px rgba(0,114,255,0.12);
-    }
-
-    /* responsive small adjustments */
-    @media (max-width:640px){
-      .hero-title{font-size:1.6rem !important}
-    }
+    body{background:linear-gradient(180deg,#030308,#071124 60%); color:#eaf2ff; font-family:Inter,ui-sans-serif,system-ui, -apple-system, "Segoe UI", Roboto; -webkit-font-smoothing:antialiased; margin:0;}
+    .glass{background:var(--card); border:1px solid rgba(255,255,255,0.04); backdrop-filter: blur(8px);}
+    .neon-text{background:linear-gradient(90deg,var(--glow-a),var(--glow-b)); -webkit-background-clip:text; -webkit-text-fill-color:transparent}
+    .accent { color: var(--glow-a); }
+    .btn-primary { background:linear-gradient(90deg,var(--glow-a),var(--glow-b)); color:#02102a; font-weight:700; padding:10px 18px; border-radius:999px; box-shadow: 0 12px 30px rgba(0,114,255,0.12); display:inline-flex; gap:10px; align-items:center;}
+    .card-hover{ transition: transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s; }
+    .card-hover:hover{ transform: translateY(-10px); box-shadow: 0 24px 60px rgba(2,6,23,0.6);}
+    .blob { filter: blur(40px) saturate(120%); opacity:.7; mix-blend-mode:screen; }
+    html { scroll-behavior: smooth; }
+    /* small screens tuning */
+    @media (max-width:640px){ .hero-title{ font-size: 1.9rem; } }
   </style>
 </head>
 <body>
   <!-- NAV -->
-  <header class="w-full fixed z-40 top-4 left-0">
+  <header class="fixed w-full z-50 top-4">
     <div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
       <a href="/" class="inline-flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent-a),var(--accent-b));display:flex;align-items:center;justify-content:center;font-weight:700;color:#021028">AI</div>
+        <div style="width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--glow-a),var(--glow-b));display:flex;align-items:center;justify-content:center;font-weight:700;color:#02102a">AI</div>
         <div>
-          <div class="font-semibold text-lg">RayanAIX</div>
-          <div class="text-xs text-[--muted]">Muhammad Rayan Shahid</div>
+          <div class="text-white font-semibold">RayanAIX</div>
+          <div class="text-xs text-[var(--muted)]">Muhammad Rayan Shahid</div>
         </div>
       </a>
-
       <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
         <a href="/about.html" class="hover:text-white">About</a>
         <a href="/projects.html" class="hover:text-white">Projects</a>
         <a href="/services.html" class="hover:text-white">Services</a>
         <a href="/bytebrilliance.html" class="hover:text-white">ByteBrilliance</a>
-        <a href="/contact.html" class="px-4 py-2 rounded-lg border border-white/6 hover:bg-white/2">Contact</a>
+        <a href="/contact.html" class="px-4 py-2 rounded-lg border border-white/6 hover:bg-white/3">Contact</a>
       </nav>
 
+      <!-- mobile menu -->
       <div class="md:hidden">
-        <button id="mobileToggle" class="p-2 rounded-md bg-white/3 text-slate-200">Menu</button>
+        <button id="mToggle" class="p-2 rounded-md bg-white/6 text-slate-200">Menu</button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile nav modal -->
-  <div id="mobileNav" class="fixed inset-0 bg-black/70 z-50 hidden">
-    <div class="absolute right-4 top-20 bg-[#0b0b0f] rounded-xl p-6 w-64 border border-white/6">
-      <a href="/about.html" class="block py-2">About</a>
-      <a href="/projects.html" class="block py-2">Projects</a>
-      <a href="/services.html" class="block py-2">Services</a>
-      <a href="/bytebrilliance.html" class="block py-2">ByteBrilliance</a>
-      <a href="/contact.html" class="block py-2">Contact</a>
-      <div class="mt-4 text-sm text-slate-400">© <span id="yr1"></span> RayanAIX</div>
+  <!-- Mobile Nav Drawer -->
+  <div id="mNav" class="fixed inset-0 bg-black/60 z-50 hidden">
+    <div class="absolute right-4 top-20 bg-[#071124] rounded-xl p-6 w-64 border border-white/6">
+      <a class="block py-2 text-white" href="/about.html">About</a>
+      <a class="block py-2 text-white" href="/projects.html">Projects</a>
+      <a class="block py-2 text-white" href="/services.html">Services</a>
+      <a class="block py-2 text-white" href="/bytebrilliance.html">ByteBrilliance</a>
+      <a class="block py-2 text-white" href="/contact.html">Contact</a>
+      <div class="mt-4 text-sm text-slate-400">© <span id="yrA"></span> RayanAIX</div>
     </div>
   </div>
 
@@ -127,41 +74,44 @@
     <section class="max-w-6xl mx-auto px-5 lg:px-0">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <div class="neon-band inline-block px-3 py-1 text-sm rounded-full text-slate-300 mb-6">Available for AI/ML projects • Freelance</div>
-
-          <h1 class="hero-title text-4xl lg:text-6xl font-extrabold leading-tight mb-6 accent-glow" data-reveal>
-            Empowering Intelligence. <br class="hidden sm:block" /> <span style="background:linear-gradient(90deg,var(--accent-a),var(--accent-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Elevating Innovation.</span>
-          </h1>
-
-          <p class="text-slate-300 max-w-2xl mb-6" data-reveal>
-            I’m <strong>Muhammad Rayan Shahid</strong> — a 15-year-old AI engineer from Karachi (ByteBrilliance AI). I design, train, and deploy robust ML systems (Computer Vision, NLP & Predictive Models) for real business impact.
-          </p>
-
-          <div class="flex items-center gap-4" data-reveal>
-            <a class="primary" href="/projects.html">Explore Projects →</a>
-            <a href="/contact.html" class="text-slate-300 hover:text-white">Hire Me / Contact</a>
+          <div class="inline-flex items-center gap-3 rounded-full px-3 py-1 text-xs text-slate-300 bg-white/3 mb-6">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="url(#g)" stroke-width="2"/></svg>
+            Available for AI/ML projects
           </div>
 
-          <div class="mt-8 text-sm text-slate-400" data-reveal>
-            Quick links:
-            <a class="text-sky-400 ml-2" href="https://github.com/RayanAIX" target="_blank">GitHub</a> ·
-            <a class="text-sky-400 ml-2" href="https://www.kaggle.com/muhammadrayanshahid" target="_blank">Kaggle</a> ·
-            <a class="text-sky-400 ml-2" href="https://www.youtube.com/@ByteBrillianceAI" target="_blank">YouTube</a>
+          <h1 class="hero-title text-4xl lg:text-6xl font-extrabold leading-tight mb-6" style="line-height:1.02">
+            <span class="neon-text">Empowering Intelligence.</span><br>
+            <span class="text-transparent bg-clip-text" style="background:linear-gradient(90deg,var(--glow-a),var(--glow-b)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Elevating Innovation.</span>
+          </h1>
+
+          <p class="text-slate-300 max-w-2xl mb-6">
+            I'm <strong>Muhammad Rayan Shahid</strong> — 15, from Karachi. I build practical ML systems (Computer Vision, NLP, Predictive Models) that companies can integrate and rely on.
+            Projects are production-minded: reproducible code, clear evaluation, and deployable demos.
+          </p>
+
+          <div class="flex gap-4 items-center">
+            <a class="btn-primary" href="/projects.html">Explore Projects →</a>
+            <a href="/contact.html" class="text-slate-300 hover:text-white">Hire me</a>
+          </div>
+
+          <div class="mt-6 text-sm text-slate-400">
+            Quick: <a class="text-sky-300" href="https://github.com/RayanAIX" target="_blank">GitHub</a> · <a class="text-sky-300" href="https://www.kaggle.com/muhammadrayanshahid" target="_blank">Kaggle</a> · <a class="text-sky-300" href="https://www.youtube.com/@ByteBrillianceAI" target="_blank">YouTube</a>
           </div>
         </div>
 
+        <!-- side card with avatar & stats -->
         <div class="relative">
-          <div class="hero-glass p-6 rounded-2xl card">
+          <div class="glass p-6 rounded-2xl card-hover">
             <div class="flex items-start gap-4">
               <img src="/assets/avatar.jpg" alt="Rayan avatar" class="w-28 h-28 rounded-xl object-cover border border-white/6" />
               <div>
-                <div class="text-sm text-slate-300">Hello, I’m</div>
+                <div class="text-sm text-slate-300">Hi, I’m</div>
                 <div class="text-2xl font-semibold">Muhammad Rayan Shahid</div>
                 <div class="text-xs text-slate-400 mt-2">AI/ML Engineer • ByteBrilliance AI</div>
               </div>
             </div>
 
-            <div class="mt-6 grid grid-cols-3 gap-4 text-sm text-slate-300">
+            <div class="mt-6 grid grid-cols-3 gap-3 text-sm">
               <div class="p-3 rounded-lg bg-white/2 text-center">
                 <div class="text-xs text-slate-400">Kaggle</div>
                 <div class="font-semibold">Active</div>
@@ -172,107 +122,104 @@
               </div>
               <div class="p-3 rounded-lg bg-white/2 text-center">
                 <div class="text-xs text-slate-400">YouTube</div>
-                <div class="font-semibold">ByteBrilliance AI</div>
+                <div class="font-semibold">ByteBrilliance</div>
               </div>
             </div>
 
-            <div class="mt-6 border-t border-white/4 pt-4 text-sm text-slate-300">
-              <strong>Featured:</strong> <a href="/projects.html#featured-kaggle" class="text-sky-300 hover:underline">Latest Kaggle competition</a>
+            <div class="mt-6 border-t border-white/6 pt-4 text-sm">
+              <strong>Featured</strong> — <a href="/projects.html#featured-kaggle" class="text-sky-300 hover:underline">Latest Kaggle competition</a>
             </div>
           </div>
 
           <!-- decorative gradient blob -->
-          <svg class="absolute -right-10 -top-8 opacity-60" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="g1" x1="0" x2="1">
-                <stop offset="0" stop-color="#00c6ff" stop-opacity="0.28"/>
-                <stop offset="1" stop-color="#0072ff" stop-opacity="0.12"/>
-              </linearGradient>
-            </defs>
+          <svg class="blob absolute -right-10 -top-8" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g1"><stop offset="0" stop-color="#00c6ff"/><stop offset="1" stop-color="#0072ff"/></linearGradient></defs>
             <circle cx="110" cy="110" r="100" fill="url(#g1)"/>
           </svg>
         </div>
       </div>
     </section>
 
-    <!-- Quick services row -->
+    <!-- Services quick row -->
     <section class="mt-20 max-w-6xl mx-auto px-5 lg:px-0">
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="card p-6 rounded-xl">
+        <div class="glass p-6 rounded-xl card-hover">
           <div class="text-xs text-slate-400">SERVICE</div>
           <div class="mt-2 font-semibold">Custom AI Models</div>
-          <div class="text-sm mt-3 text-slate-300">End-to-end model design, training & deployment tailored to domain data.</div>
+          <div class="text-sm mt-3 text-slate-300">From data prep to deployment — tailored to business needs.</div>
         </div>
-        <div class="card p-6 rounded-xl">
+        <div class="glass p-6 rounded-xl card-hover">
           <div class="text-xs text-slate-400">SERVICE</div>
           <div class="mt-2 font-semibold">Computer Vision</div>
-          <div class="text-sm mt-3 text-slate-300">Detection, classification, and real-time inference solutions.</div>
+          <div class="text-sm mt-3 text-slate-300">Detection, segmentation, inference optimizations (CPU/edge-ready).</div>
         </div>
-        <div class="card p-6 rounded-xl">
+        <div class="glass p-6 rounded-xl card-hover">
           <div class="text-xs text-slate-400">SERVICE</div>
           <div class="mt-2 font-semibold">NLP & RAG</div>
-          <div class="text-sm mt-3 text-slate-300">Text classifiers, retrieval augmented systems and domain Q&A.</div>
+          <div class="text-sm mt-3 text-slate-300">Domain Q&A, pipelines, and fine-tuning guidance.</div>
         </div>
       </div>
     </section>
 
-    <!-- Featured project - cinematic -->
-    <section id="featured" class="mt-20 max-w-6xl mx-auto px-5 lg:px-0">
-      <div class="card p-6 rounded-2xl relative overflow-hidden">
+    <!-- Featured project -->
+    <section id="featured-kaggle" class="mt-20 max-w-6xl mx-auto px-5 lg:px-0">
+      <div class="glass p-6 rounded-2xl card-hover overflow-hidden relative">
         <div class="grid lg:grid-cols-2 gap-6 items-center">
           <div>
             <div class="text-xs text-slate-400">FEATURED COMPETITION</div>
-            <h3 class="text-2xl font-bold mt-2">Latest Kaggle Competition — <span class="text-sky-300">Titanic / Custom variant</span></h3>
-            <p class="text-slate-300 mt-4">End-to-end pipeline: EDA, feature engineering, model stacking, and robust validation. Focused on production-ready code and clear reproducible steps.</p>
+            <h3 class="text-2xl font-bold mt-2">Latest Kaggle Competition — <span class="text-sky-300">Titanic Variant</span></h3>
+            <p class="text-slate-300 mt-4">End-to-end: EDA, feature engineering, model stacking, cross-validation, and a reproducible notebook for production use.</p>
 
             <div class="mt-6 flex gap-3">
-              <a class="primary" href="https://github.com/RayanAIX" target="_blank">View Code</a>
+              <a class="btn-primary" href="https://github.com/RayanAIX" target="_blank">View Code</a>
               <a href="https://www.kaggle.com/muhammadrayanshahid" class="px-4 py-2 rounded-md border border-white/6 text-slate-200">Open Notebook</a>
             </div>
           </div>
 
           <div>
-            <img src="/assets/featured-screenshot.jpg" alt="featured" class="w-full rounded-xl border border-white/6 object-cover h-52" />
+            <img src="/assets/featured-screenshot.jpg" alt="featured" class="w-full rounded-xl border border-white/6 object-cover h-56"/>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer CTA -->
+    <!-- CTA -->
     <section class="mt-20 py-12">
-      <div class="max-w-6xl mx-auto px-5 text-center">
-        <div class="p-8 rounded-2xl card inline-block">
+      <div class="max-w-6xl mx-auto px-5 lg:px-0 text-center">
+        <div class="glass p-8 rounded-2xl inline-block">
           <div class="text-lg font-semibold">Ready to build something intelligent?</div>
           <div class="mt-4 text-slate-300">Email me — <a class="text-sky-300" href="mailto:m.rayanshahid5@gmail.com">m.rayanshahid5@gmail.com</a></div>
-          <div class="mt-6">
-            <a class="primary" href="/contact.html">Start a Project →</a>
-          </div>
+          <div class="mt-6"><a href="/contact.html" class="btn-primary">Start a Project →</a></div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="py-8 text-center text-sm text-slate-400 border-t border-white/5">
-    © <span id="yr2"></span> RayanAIX — Built with curiosity, code & purpose.
+    © <span id="yrB"></span> RayanAIX — Built with curiosity, code & purpose.
   </footer>
 
+  <!-- Animations & interactions -->
   <script>
-    // small helpers: mobile nav, reveal on scroll, set year
-    document.getElementById('yr1').textContent = new Date().getFullYear();
-    document.getElementById('yr2').textContent = new Date().getFullYear();
+    document.getElementById('yrA').textContent = new Date().getFullYear();
+    document.getElementById('yrB').textContent = new Date().getFullYear();
 
-    // mobile toggle
-    document.getElementById('mobileToggle').addEventListener('click', () => {
-      const m = document.getElementById('mobileNav');
-      m.classList.toggle('hidden');
+    // Mobile nav
+    const mToggle=document.getElementById('mToggle'), mNav=document.getElementById('mNav');
+    mToggle.addEventListener('click',()=> mNav.classList.toggle('hidden'));
+
+    // GSAP reveal stagger
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('[data-reveal]').forEach(el => {
+      gsap.fromTo(el, {autoAlpha:0, y:20}, {
+        autoAlpha:1, y:0, duration:0.8, ease:'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' }
+      });
     });
 
-    // simple intersection reveal
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    // small intersection for hero Title (fallback)
+    const r = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in') });},{threshold:.12});
+    document.querySelectorAll('[data-reveal]').forEach(e=>r.observe(e));
   </script>
 </body>
 </html>
