@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — RayanAIX</title>
+  <link rel="icon" href="/assets/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{background:#07070a;color:#e6eef8;font-family:Inter,system-ui;}
+    .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(8px)}
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="py-6">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
+      <a href="/" class="text-white font-bold">RayanAIX</a>
+      <nav class="hidden md:flex gap-6 text-slate-300">
+        <a href="/" class="hover:text-white">Home</a>
+        <a href="/projects.html" class="hover:text-white">Projects</a>
+        <a href="/services.html" class="hover:text-white">Services</a>
+        <a href="/contact.html" class="hover:text-white">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-5 py-12">
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2">
+        <div class="card p-8 rounded-2xl">
+          <h1 class="text-3xl font-bold mb-4">About</h1>
+          <p class="text-slate-300">I am <strong>Muhammad Rayan Shahid</strong>, 15 years old, from Karachi. I’m building systems that use AI to solve practical problems — especially in Computer Vision and NLP. I focus on reproducible code, robust evaluation, and delivering business-focused models.</p>
+
+          <h3 class="mt-6 font-semibold">Mission</h3>
+          <p class="text-slate-300 mt-2">To convert research and models into usable tools that help people and businesses, from agriculture to media verification. ByteBrilliance AI is my channel for sharing progress and tutorials.</p>
+
+          <h3 class="mt-6 font-semibold">Contact & Availability</h3>
+          <p class="text-slate-300 mt-2">Available for freelance AI/ML projects. Email: <a class="text-sky-300" href="mailto:m.rayanshahid5@gmail.com">m.rayanshahid5@gmail.com</a></p>
+
+          <div class="mt-6 flex gap-3">
+            <a href="/assets/Muhammad_Rayan_Shahid_Resume.pdf" class="px-4 py-2 rounded-md bg-sky-600 text-black font-semibold">Download Resume</a>
+            <a href="/projects.html" class="px-4 py-2 rounded-md border border-white/6">See Projects</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card p-6 rounded-2xl">
+        <img src="/assets/avatar.jpg" alt="avatar" class="w-full rounded-lg object-cover" />
+        <div class="mt-4">
+          <div class="text-slate-400">Skills</div>
+          <ul class="mt-3 text-slate-300 space-y-2">
+            <li>Python · PyTorch · TensorFlow</li>
+            <li>Computer Vision · OpenCV · YOLO</li>
+            <li>NLP · Transformers · RAG basics</li>
+            <li>Pandas · NumPy · scikit-learn</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="py-8 text-center text-slate-400 border-t border-white/5">© <span id="y1"></span> RayanAIX</footer>
+  <script>document.getElementById('y1').textContent=new Date().getFullYear()</script>
+</body>
+</html>
