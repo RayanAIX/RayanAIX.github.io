@@ -1,49 +1,39 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ByteBrilliance AI — RayanAIX</title>
-  <link rel="icon" href="/assets/favicon.svg" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ByteBrilliance AI — RayanAIX</title>
+  <link rel="icon" href="/assets/favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>body{background:#07070a;color:#e6eef8;font-family:Inter,system-ui} .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04)}</style>
+  <style>body{background:linear-gradient(180deg,#030308,#071124);color:#eaf2ff;font-family:Inter,system-ui}.glass{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(8px)}</style>
 </head>
 <body>
   <header class="py-6">
-    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
-      <a href="/" class="text-white font-bold">RayanAIX</a>
-      <nav class="hidden md:flex gap-6 text-slate-300">
-        <a href="/projects.html">Projects</a>
-        <a href="/services.html">Services</a>
-      </nav>
-    </div>
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between"><a href="/" class="text-white font-bold">RayanAIX</a><nav class="hidden md:flex gap-6 text-slate-300"><a href="/projects.html">Projects</a><a href="/services.html">Services</a></nav></div>
   </header>
 
   <main class="max-w-6xl mx-auto px-5 py-12">
-    <div class="card p-8 rounded-xl">
+    <div class="glass p-8 rounded-xl">
       <h1 class="text-2xl font-bold">ByteBrilliance AI</h1>
-      <p class="text-slate-300 mt-4">ByteBrilliance AI is my channel where I document projects, simplify AI concepts, and publish tutorials and project breakdowns. I use short demos, code walkthroughs, and cinematic narration to explain complex tech.</p>
+      <p class="text-slate-300 mt-3">Short cinematic project breakdowns, tutorials, and AI news. I explain models with code + narrative.</p>
 
       <div class="mt-6 grid md:grid-cols-2 gap-6">
         <div>
-          <h3 class="font-semibold">Featured Videos</h3>
-          <ul class="mt-3 text-slate-300 space-y-3">
-            <li>Project deep dives (Model → Demo)</li>
-            <li>Practical tutorials (Colab → Deployment)</li>
-            <li>Research summaries</li>
-          </ul>
+          <h3 class="font-semibold">Featured playlist</h3>
+          <p class="text-slate-300 mt-2">Demos, deep dives, and practical Colab guides.</p>
+          <a class="inline-block mt-4 px-4 py-2 rounded-md bg-sky-600 text-black font-semibold" href="https://www.youtube.com/@ByteBrillianceAI" target="_blank">Visit Channel</a>
         </div>
 
         <div>
-          <h3 class="font-semibold">Subscribe</h3>
-          <p class="text-slate-300 mt-2">Subscribe to follow new uploads:</p>
-          <a class="inline-block mt-3 px-4 py-2 rounded-md bg-sky-600 text-black font-semibold" href="https://www.youtube.com/@ByteBrillianceAI" target="_blank">Visit Channel</a>
+          <!-- YouTube latest video embed (example placeholder) -->
+          <div class="aspect-w-16 aspect-h-9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="ByteBrilliance AI video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-64 rounded-lg border border-white/6"></iframe>
+          </div>
         </div>
       </div>
     </div>
   </main>
 
-  <footer class="py-8 text-center text-slate-400 border-t border-white/5">© <span id="yb"></span> RayanAIX</footer>
-  <script>document.getElementById('yb').textContent=new Date().getFullYear()</script>
+  <footer class="py-8 text-center text-slate-400 border-t border-white/5">© <span id="yb2"></span> RayanAIX</footer>
+  <script>document.getElementById('yb2').textContent=new Date().getFullYear()</script>
 </body>
 </html>
