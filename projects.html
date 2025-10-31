@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — RayanAIX</title>
+  <link rel="icon" href="/assets/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{background:#07070a;color:#e6eef8;font-family:Inter,system-ui} .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04)}</style>
+</head>
+<body>
+  <header class="py-6">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
+      <a href="/" class="text-white font-bold">RayanAIX</a>
+      <nav class="hidden md:flex gap-6 text-slate-300">
+        <a href="/about.html" class="hover:text-white">About</a>
+        <a href="/services.html" class="hover:text-white">Services</a>
+        <a href="/contact.html" class="hover:text-white">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 py-12">
+    <h1 class="text-3xl font-bold mb-6">Projects</h1>
+
+    <!-- Featured -->
+    <section id="featured-kaggle" class="card p-6 rounded-xl mb-10">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="md:col-span-2">
+          <div class="text-xs text-slate-400">FEATURED</div>
+          <h2 class="text-2xl font-bold mt-2">Titanic Survival Prediction — Production-ready pipeline</h2>
+          <p class="text-slate-300 mt-4">Complete EDA, feature engineering, stacking models and clear reproducible notebook. Emphasis on robust validation and deployment notes.</p>
+
+          <div class="mt-6 flex gap-3">
+            <a href="https://github.com/RayanAIX" class="px-4 py-2 rounded-md bg-sky-600 text-black font-semibold">View on GitHub</a>
+            <a href="https://www.kaggle.com/muhammadrayanshahid" class="px-4 py-2 rounded-md border border-white/6">Open Kaggle Notebook</a>
+          </div>
+        </div>
+
+        <div>
+          <img src="/assets/featured-screenshot.jpg" alt="screenshot" class="rounded-lg object-cover w-full h-40"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid of projects -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Project card template - duplicate/update in your repo -->
+      <article class="card p-5 rounded-lg">
+        <div class="text-xs text-slate-400">Computer Vision</div>
+        <h3 class="font-semibold mt-2">Emotion Classifier</h3>
+        <p class="text-slate-300 mt-2 text-sm">CNN based model for facial emotion recognition. Includes dataset, training scripts and evaluation metrics.</p>
+        <div class="mt-4 flex gap-3 text-sm">
+          <a href="https://github.com/RayanAIX" class="text-sky-300">GitHub</a>
+          <a href="https://www.youtube.com/@ByteBrillianceAI" class="text-sky-300">Demo</a>
+        </div>
+      </article>
+
+      <article class="card p-5 rounded-lg">
+        <div class="text-xs text-slate-400">NLP</div>
+        <h3 class="font-semibold mt-2">Fake News Detection</h3>
+        <p class="text-slate-300 mt-2 text-sm">TF-IDF + linear models with calibrated thresholds; built a lightweight inference pipeline for media monitoring.</p>
+        <div class="mt-4 flex gap-3 text-sm">
+          <a href="https://github.com/RayanAIX" class="text-sky-300">GitHub</a>
+        </div>
+      </article>
+
+      <article class="card p-5 rounded-lg">
+        <div class="text-xs text-slate-400">CV</div>
+        <h3 class="font-semibold mt-2">Plant Disease Detection</h3>
+        <p class="text-slate-300 mt-2 text-sm">Transfer learning approach with augmentation, achieving strong class-balanced accuracy on leaf datasets.</p>
+        <div class="mt-4 flex gap-3 text-sm">
+          <a href="https://github.com/RayanAIX" class="text-sky-300">GitHub</a>
+        </div>
+      </article>
+
+      <!-- Add more -->
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href="/contact.html" class="px-6 py-3 rounded-full bg-sky-600 text-black font-semibold">Request a Case Study</a>
+    </div>
+  </main>
+
+  <footer class="py-8 text-center text-slate-400 border-t border-white/5">© <span id="yrp"></span> RayanAIX</footer>
+  <script>document.getElementById('yrp').textContent=new Date().getFullYear()</script>
+</body>
+</html>
