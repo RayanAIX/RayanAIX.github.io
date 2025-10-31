@@ -1,127 +1,278 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RayanAIX | AI Engineer & Innovator</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RayanAIX — Empowering Intelligence</title>
+  <meta name="description" content="RayanAIX — Muhammad Rayan Shahid. AI/ML engineer | ByteBrilliance AI | Projects, Freelance Services, Kaggle & GitHub." />
+  <meta property="og:title" content="RayanAIX — Muhammad Rayan Shahid" />
+  <meta property="og:description" content="AI/ML engineer: Computer Vision, NLP, Predictive Modeling. Freelance services & case studies." />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <link rel="icon" href="/assets/favicon.svg" />
+  <!-- Tailwind CDN (production-ready) -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      background-color: #0a0a0a;
-      color: #e0e0e0;
-      font-family: 'Poppins', sans-serif;
+    /* Design tokens */
+    :root{
+      --accent-a:#00c6ff; /* neon cyan */
+      --accent-b:#0072ff; /* blue */
+      --glass: rgba(255,255,255,0.05);
+      --glass-2: rgba(255,255,255,0.03);
+      --muted:#94a3b8;
+      --bg:#07070a;
     }
-    .gradient-text {
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    html,body{height:100%}
+    body{
+      background: linear-gradient(180deg,#050508 0%, #0b0b0f 60%);
+      color:#e6eef8;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
     }
-    .glow {
-      text-shadow: 0 0 10px #0072ff, 0 0 20px #00c6ff;
+
+    /* Animated gradient band */
+    .neon-band{
+      background: linear-gradient(90deg, rgba(0,198,255,.12), rgba(0,114,255,.08));
+      border-radius:999px;
+      border:1px solid rgba(0,114,255,0.08);
+      padding:4px;
     }
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Hero glass */
+    .hero-glass{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
       backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 114, 255, 0.3);
+
+    /* subtle card hover */
+    .card {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
+      will-change: transform;
     }
-    html {
-      scroll-behavior: smooth;
+    .card:hover{
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+    }
+
+    .accent-glow {
+      text-shadow: 0 6px 28px rgba(0,198,255,0.08), 0 2px 10px rgba(0,114,255,0.06);
+    }
+
+    /* animated reveal */
+    [data-reveal] { opacity:0; transform: translateY(18px); transition: all 600ms cubic-bezier(.2,.9,.3,1); }
+    [data-reveal].in{ opacity:1; transform:none; }
+
+    a.primary {
+      background: linear-gradient(90deg,var(--accent-a), var(--accent-b));
+      color: #021028;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items:center;
+      gap:10px;
+      box-shadow: 0 10px 30px rgba(0,114,255,0.12);
+    }
+
+    /* responsive small adjustments */
+    @media (max-width:640px){
+      .hero-title{font-size:1.6rem !important}
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="flex justify-between items-center px-8 py-6 bg-black bg-opacity-80 fixed w-full top-0 z-50">
-    <h1 class="text-2xl font-bold gradient-text">RayanAIX</h1>
-    <div class="space-x-6 text-gray-300">
-      <a href="#about" class="hover:text-blue-400">About</a>
-      <a href="#projects" class="hover:text-blue-400">Projects</a>
-      <a href="#services" class="hover:text-blue-400">Services</a>
-      <a href="#contact" class="hover:text-blue-400">Contact</a>
-    </div>
-  </nav>
+  <!-- NAV -->
+  <header class="w-full fixed z-40 top-4 left-0">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
+      <a href="/" class="inline-flex items-center gap-3">
+        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent-a),var(--accent-b));display:flex;align-items:center;justify-content:center;font-weight:700;color:#021028">AI</div>
+        <div>
+          <div class="font-semibold text-lg">RayanAIX</div>
+          <div class="text-xs text-[--muted]">Muhammad Rayan Shahid</div>
+        </div>
+      </a>
 
-  <!-- Hero Section -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-4">
-    <h2 class="text-4xl md:text-6xl font-extrabold mb-4 gradient-text glow">Empowering Intelligence. Elevating Innovation.</h2>
-    <p class="max-w-2xl text-gray-400 mb-6">Welcome to <strong>RayanAIX</strong> — the fusion of creativity and AI engineering. Building intelligent solutions, crafting digital experiences, and automating the future.</p>
-    <a href="#projects" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition">Explore My Work</a>
-  </section>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="/about.html" class="hover:text-white">About</a>
+        <a href="/projects.html" class="hover:text-white">Projects</a>
+        <a href="/services.html" class="hover:text-white">Services</a>
+        <a href="/bytebrilliance.html" class="hover:text-white">ByteBrilliance</a>
+        <a href="/contact.html" class="px-4 py-2 rounded-lg border border-white/6 hover:bg-white/2">Contact</a>
+      </nav>
 
-  <!-- About -->
-  <section id="about" class="py-24 px-6 md:px-20 bg-gray-900 bg-opacity-70">
-    <h2 class="text-3xl font-bold mb-8 gradient-text">About Me</h2>
-    <div class="max-w-4xl mx-auto text-gray-300 leading-relaxed">
-      <p>I'm <strong>Muhammad Rayan Shahid</strong>, a 15-year-old AI enthusiast from Karachi, Pakistan. My journey revolves around artificial intelligence, freelancing, and innovation. Through my brand <strong>RayanAIX</strong>, I aim to build impactful AI solutions and empower others with the brilliance of technology.</p>
-      <p class="mt-4">I specialize in machine learning, deep learning, and data-driven problem-solving — from predictive models to computer vision and NLP projects. My mission: <em>to merge technology with purpose.</em></p>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="py-24 px-6 md:px-20">
-    <h2 class="text-3xl font-bold mb-8 gradient-text">Projects</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-semibold text-white">Titanic Survival Prediction</h3>
-        <p class="text-gray-400 mt-2">Predicting passenger survival using data analysis, feature engineering, and machine learning on the famous Kaggle dataset.</p>
-      </div>
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-semibold text-white">Fake News Detection</h3>
-        <p class="text-gray-400 mt-2">A real-world NLP project detecting fake news using TF-IDF and logistic regression, deployed and shared on GitHub.</p>
-      </div>
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-semibold text-white">Plant Disease Detection</h3>
-        <p class="text-gray-400 mt-2">A CNN-powered system that classifies and identifies plant diseases through image recognition using TensorFlow and Keras.</p>
+      <div class="md:hidden">
+        <button id="mobileToggle" class="p-2 rounded-md bg-white/3 text-slate-200">Menu</button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Services -->
-  <section id="services" class="py-24 px-6 md:px-20 bg-gray-900 bg-opacity-70">
-    <h2 class="text-3xl font-bold mb-8 gradient-text">Services</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-semibold text-white">AI Model Development</h3>
-        <p class="text-gray-400 mt-2">Building end-to-end machine learning models — from data preprocessing to model deployment.</p>
-      </div>
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-semibold text-white">Data Analysis & Visualization</h3>
-        <p class="text-gray-400 mt-2">Transforming raw data into actionable insights using Python, Pandas, and Matplotlib.</p>
-      </div>
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-semibold text-white">AI Consulting</h3>
-        <p class="text-gray-400 mt-2">Providing AI guidance for businesses and individuals looking to integrate intelligence into their workflows.</p>
-      </div>
+  <!-- Mobile nav modal -->
+  <div id="mobileNav" class="fixed inset-0 bg-black/70 z-50 hidden">
+    <div class="absolute right-4 top-20 bg-[#0b0b0f] rounded-xl p-6 w-64 border border-white/6">
+      <a href="/about.html" class="block py-2">About</a>
+      <a href="/projects.html" class="block py-2">Projects</a>
+      <a href="/services.html" class="block py-2">Services</a>
+      <a href="/bytebrilliance.html" class="block py-2">ByteBrilliance</a>
+      <a href="/contact.html" class="block py-2">Contact</a>
+      <div class="mt-4 text-sm text-slate-400">© <span id="yr1"></span> RayanAIX</div>
     </div>
-  </section>
+  </div>
 
-  <!-- Contact -->
-  <section id="contact" class="py-24 px-6 md:px-20 text-center">
-    <h2 class="text-3xl font-bold mb-8 gradient-text">Contact</h2>
-    <p class="text-gray-400 mb-6">Let’s collaborate or build something impactful together.</p>
-    <a href="mailto:m.rayanshahid5@gmail.com" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition">m.rayanshahid5@gmail.com</a>
+  <!-- HERO -->
+  <main class="pt-28">
+    <section class="max-w-6xl mx-auto px-5 lg:px-0">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="neon-band inline-block px-3 py-1 text-sm rounded-full text-slate-300 mb-6">Available for AI/ML projects • Freelance</div>
 
-    <div class="flex justify-center space-x-6 mt-8">
-      <a href="https://github.com/RayanAIX" target="_blank" class="text-gray-400 hover:text-blue-400">GitHub</a>
-      <a href="https://www.kaggle.com/muhammadrayanshahid" target="_blank" class="text-gray-400 hover:text-blue-400">Kaggle</a>
-      <a href="https://www.linkedin.com/in/muhammadrayanshahid/" target="_blank" class="text-gray-400 hover:text-blue-400">LinkedIn</a>
-      <a href="https://www.youtube.com/@ByteBrillianceAI" target="_blank" class="text-gray-400 hover:text-blue-400">YouTube</a>
-      <a href="https://x.com/MRayanShahid" target="_blank" class="text-gray-400 hover:text-blue-400">X</a>
-    </div>
-  </section>
+          <h1 class="hero-title text-4xl lg:text-6xl font-extrabold leading-tight mb-6 accent-glow" data-reveal>
+            Empowering Intelligence. <br class="hidden sm:block" /> <span style="background:linear-gradient(90deg,var(--accent-a),var(--accent-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Elevating Innovation.</span>
+          </h1>
 
-  <!-- Footer -->
-  <footer class="py-6 text-center text-gray-500 text-sm border-t border-gray-700 mt-10">
-    © <span id="year"></span> RayanAIX. Built by Muhammad Rayan Shahid.
+          <p class="text-slate-300 max-w-2xl mb-6" data-reveal>
+            I’m <strong>Muhammad Rayan Shahid</strong> — a 15-year-old AI engineer from Karachi (ByteBrilliance AI). I design, train, and deploy robust ML systems (Computer Vision, NLP & Predictive Models) for real business impact.
+          </p>
+
+          <div class="flex items-center gap-4" data-reveal>
+            <a class="primary" href="/projects.html">Explore Projects →</a>
+            <a href="/contact.html" class="text-slate-300 hover:text-white">Hire Me / Contact</a>
+          </div>
+
+          <div class="mt-8 text-sm text-slate-400" data-reveal>
+            Quick links:
+            <a class="text-sky-400 ml-2" href="https://github.com/RayanAIX" target="_blank">GitHub</a> ·
+            <a class="text-sky-400 ml-2" href="https://www.kaggle.com/muhammadrayanshahid" target="_blank">Kaggle</a> ·
+            <a class="text-sky-400 ml-2" href="https://www.youtube.com/@ByteBrillianceAI" target="_blank">YouTube</a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="hero-glass p-6 rounded-2xl card">
+            <div class="flex items-start gap-4">
+              <img src="/assets/avatar.jpg" alt="Rayan avatar" class="w-28 h-28 rounded-xl object-cover border border-white/6" />
+              <div>
+                <div class="text-sm text-slate-300">Hello, I’m</div>
+                <div class="text-2xl font-semibold">Muhammad Rayan Shahid</div>
+                <div class="text-xs text-slate-400 mt-2">AI/ML Engineer • ByteBrilliance AI</div>
+              </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-3 gap-4 text-sm text-slate-300">
+              <div class="p-3 rounded-lg bg-white/2 text-center">
+                <div class="text-xs text-slate-400">Kaggle</div>
+                <div class="font-semibold">Active</div>
+              </div>
+              <div class="p-3 rounded-lg bg-white/2 text-center">
+                <div class="text-xs text-slate-400">GitHub</div>
+                <div class="font-semibold">Projects</div>
+              </div>
+              <div class="p-3 rounded-lg bg-white/2 text-center">
+                <div class="text-xs text-slate-400">YouTube</div>
+                <div class="font-semibold">ByteBrilliance AI</div>
+              </div>
+            </div>
+
+            <div class="mt-6 border-t border-white/4 pt-4 text-sm text-slate-300">
+              <strong>Featured:</strong> <a href="/projects.html#featured-kaggle" class="text-sky-300 hover:underline">Latest Kaggle competition</a>
+            </div>
+          </div>
+
+          <!-- decorative gradient blob -->
+          <svg class="absolute -right-10 -top-8 opacity-60" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#00c6ff" stop-opacity="0.28"/>
+                <stop offset="1" stop-color="#0072ff" stop-opacity="0.12"/>
+              </linearGradient>
+            </defs>
+            <circle cx="110" cy="110" r="100" fill="url(#g1)"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick services row -->
+    <section class="mt-20 max-w-6xl mx-auto px-5 lg:px-0">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6 rounded-xl">
+          <div class="text-xs text-slate-400">SERVICE</div>
+          <div class="mt-2 font-semibold">Custom AI Models</div>
+          <div class="text-sm mt-3 text-slate-300">End-to-end model design, training & deployment tailored to domain data.</div>
+        </div>
+        <div class="card p-6 rounded-xl">
+          <div class="text-xs text-slate-400">SERVICE</div>
+          <div class="mt-2 font-semibold">Computer Vision</div>
+          <div class="text-sm mt-3 text-slate-300">Detection, classification, and real-time inference solutions.</div>
+        </div>
+        <div class="card p-6 rounded-xl">
+          <div class="text-xs text-slate-400">SERVICE</div>
+          <div class="mt-2 font-semibold">NLP & RAG</div>
+          <div class="text-sm mt-3 text-slate-300">Text classifiers, retrieval augmented systems and domain Q&A.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured project - cinematic -->
+    <section id="featured" class="mt-20 max-w-6xl mx-auto px-5 lg:px-0">
+      <div class="card p-6 rounded-2xl relative overflow-hidden">
+        <div class="grid lg:grid-cols-2 gap-6 items-center">
+          <div>
+            <div class="text-xs text-slate-400">FEATURED COMPETITION</div>
+            <h3 class="text-2xl font-bold mt-2">Latest Kaggle Competition — <span class="text-sky-300">Titanic / Custom variant</span></h3>
+            <p class="text-slate-300 mt-4">End-to-end pipeline: EDA, feature engineering, model stacking, and robust validation. Focused on production-ready code and clear reproducible steps.</p>
+
+            <div class="mt-6 flex gap-3">
+              <a class="primary" href="https://github.com/RayanAIX" target="_blank">View Code</a>
+              <a href="https://www.kaggle.com/muhammadrayanshahid" class="px-4 py-2 rounded-md border border-white/6 text-slate-200">Open Notebook</a>
+            </div>
+          </div>
+
+          <div>
+            <img src="/assets/featured-screenshot.jpg" alt="featured" class="w-full rounded-xl border border-white/6 object-cover h-52" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="mt-20 py-12">
+      <div class="max-w-6xl mx-auto px-5 text-center">
+        <div class="p-8 rounded-2xl card inline-block">
+          <div class="text-lg font-semibold">Ready to build something intelligent?</div>
+          <div class="mt-4 text-slate-300">Email me — <a class="text-sky-300" href="mailto:m.rayanshahid5@gmail.com">m.rayanshahid5@gmail.com</a></div>
+          <div class="mt-6">
+            <a class="primary" href="/contact.html">Start a Project →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 text-center text-sm text-slate-400 border-t border-white/5">
+    © <span id="yr2"></span> RayanAIX — Built with curiosity, code & purpose.
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // small helpers: mobile nav, reveal on scroll, set year
+    document.getElementById('yr1').textContent = new Date().getFullYear();
+    document.getElementById('yr2').textContent = new Date().getFullYear();
+
+    // mobile toggle
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+      const m = document.getElementById('mobileNav');
+      m.classList.toggle('hidden');
+    });
+
+    // simple intersection reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
   </script>
 </body>
 </html>
