@@ -1,123 +1,127 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Github, Linkedin, Mail, ArrowRight, Cpu, Code, Brain } from 'lucide-react';
-
-// Global layout
-const Layout = ({ children }) => (
-  <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-950 text-white font-sans">
-    <header className="flex justify-between items-center px-8 py-5 border-b border-gray-800">
-      <h1 className="text-2xl font-bold text-cyan-400">RayanAIX</h1>
-      <nav className="space-x-6">
-        <Link to="/" className="hover:text-cyan-400">Home</Link>
-        <Link to="/about" className="hover:text-cyan-400">About</Link>
-        <Link to="/services" className="hover:text-cyan-400">Services</Link>
-        <Link to="/projects" className="hover:text-cyan-400">Projects</Link>
-        <Link to="/contact" className="hover:text-cyan-400">Contact</Link>
-      </nav>
-    </header>
-    <main className="px-8 py-10 max-w-6xl mx-auto">{children}</main>
-    <footer className="border-t border-gray-800 text-center py-6 text-gray-400">
-      <p>© {new Date().getFullYear()} RayanAIX. All rights reserved.</p>
-    </footer>
-  </div>
-);
-
-// Home Page
-const Home = () => (
-  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-    <div className="text-center space-y-6">
-      <h2 className="text-4xl font-bold">Empowering Intelligence. Elevating Innovation.</h2>
-      <p className="text-gray-400 max-w-2xl mx-auto">
-        Welcome to <span className="text-cyan-400 font-semibold">RayanAIX</span> — the fusion of creativity and AI engineering.
-        Building intelligent solutions, crafting digital experiences, and automating the future.
-      </p>
-      <Button className="bg-cyan-500 hover:bg-cyan-600">Explore My Work <ArrowRight className="ml-2" /></Button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RayanAIX | AI Engineer & Innovator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glow {
+      text-shadow: 0 0 10px #0072ff, 0 0 20px #00c6ff;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 114, 255, 0.3);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-8 py-6 bg-black bg-opacity-80 fixed w-full top-0 z-50">
+    <h1 class="text-2xl font-bold gradient-text">RayanAIX</h1>
+    <div class="space-x-6 text-gray-300">
+      <a href="#about" class="hover:text-blue-400">About</a>
+      <a href="#projects" class="hover:text-blue-400">Projects</a>
+      <a href="#services" class="hover:text-blue-400">Services</a>
+      <a href="#contact" class="hover:text-blue-400">Contact</a>
     </div>
-  </motion.div>
-);
+  </nav>
 
-// About Page
-const About = () => (
-  <div className="space-y-4">
-    <h2 className="text-3xl font-bold text-cyan-400">About Me</h2>
-    <p className="text-gray-300 leading-relaxed">
-      I'm <span className="text-white font-semibold">Muhammad Rayan Shahid</span>, a 15-year-old AI enthusiast from Karachi, Pakistan.
-      My journey revolves around artificial intelligence, freelancing, and innovation. Through my brand <span className="text-cyan-400">RayanAIX</span>,
-      I aim to build impactful AI solutions and empower others with the brilliance of technology.
-    </p>
-  </div>
-);
+  <!-- Hero Section -->
+  <section class="h-screen flex flex-col justify-center items-center text-center px-4">
+    <h2 class="text-4xl md:text-6xl font-extrabold mb-4 gradient-text glow">Empowering Intelligence. Elevating Innovation.</h2>
+    <p class="max-w-2xl text-gray-400 mb-6">Welcome to <strong>RayanAIX</strong> — the fusion of creativity and AI engineering. Building intelligent solutions, crafting digital experiences, and automating the future.</p>
+    <a href="#projects" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition">Explore My Work</a>
+  </section>
 
-// Services Page
-const Services = () => (
-  <div>
-    <h2 className="text-3xl font-bold text-cyan-400 mb-6">Services</h2>
-    <div className="grid md:grid-cols-3 gap-6">
-      {[{ icon: Cpu, title: 'AI Development', desc: 'End-to-end AI solutions with deep learning and automation.' },
-        { icon: Code, title: 'Web Development', desc: 'Professional websites, portfolios, and digital experiences.' },
-        { icon: Brain, title: 'Machine Learning', desc: 'Model design, training, and deployment for real-world applications.' }
-      ].map((service, i) => (
-        <Card key={i} className="bg-gray-800 border border-gray-700">
-          <CardContent className="text-center py-8">
-            <service.icon className="mx-auto text-cyan-400 mb-4" size={40} />
-            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-            <p className="text-gray-400">{service.desc}</p>
-          </CardContent>
-        </Card>
-      ))}
+  <!-- About -->
+  <section id="about" class="py-24 px-6 md:px-20 bg-gray-900 bg-opacity-70">
+    <h2 class="text-3xl font-bold mb-8 gradient-text">About Me</h2>
+    <div class="max-w-4xl mx-auto text-gray-300 leading-relaxed">
+      <p>I'm <strong>Muhammad Rayan Shahid</strong>, a 15-year-old AI enthusiast from Karachi, Pakistan. My journey revolves around artificial intelligence, freelancing, and innovation. Through my brand <strong>RayanAIX</strong>, I aim to build impactful AI solutions and empower others with the brilliance of technology.</p>
+      <p class="mt-4">I specialize in machine learning, deep learning, and data-driven problem-solving — from predictive models to computer vision and NLP projects. My mission: <em>to merge technology with purpose.</em></p>
     </div>
-  </div>
-);
+  </section>
 
-// Projects Page
-const Projects = () => (
-  <div>
-    <h2 className="text-3xl font-bold text-cyan-400 mb-6">Projects</h2>
-    <p className="text-gray-400 mb-6">Explore my AI and ML projects uploaded on GitHub and Kaggle.</p>
-    <div className="grid md:grid-cols-2 gap-6">
-      {[{ title: 'Titanic Survival Prediction', link: 'https://github.com/', desc: 'Kaggle competition project predicting survival using ML.' },
-        { title: 'Fake News Detection', link: 'https://github.com/', desc: 'Deep learning model to classify fake vs real news.' }].map((proj, i) => (
-        <Card key={i} className="bg-gray-800 border border-gray-700">
-          <CardContent className="p-6">
-            <h3 className="text-xl font-semibold mb-2 text-white">{proj.title}</h3>
-            <p className="text-gray-400 mb-3">{proj.desc}</p>
-            <a href={proj.link} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">View on GitHub</a>
-          </CardContent>
-        </Card>
-      ))}
+  <!-- Projects -->
+  <section id="projects" class="py-24 px-6 md:px-20">
+    <h2 class="text-3xl font-bold mb-8 gradient-text">Projects</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card p-6 rounded-xl">
+        <h3 class="text-xl font-semibold text-white">Titanic Survival Prediction</h3>
+        <p class="text-gray-400 mt-2">Predicting passenger survival using data analysis, feature engineering, and machine learning on the famous Kaggle dataset.</p>
+      </div>
+      <div class="card p-6 rounded-xl">
+        <h3 class="text-xl font-semibold text-white">Fake News Detection</h3>
+        <p class="text-gray-400 mt-2">A real-world NLP project detecting fake news using TF-IDF and logistic regression, deployed and shared on GitHub.</p>
+      </div>
+      <div class="card p-6 rounded-xl">
+        <h3 class="text-xl font-semibold text-white">Plant Disease Detection</h3>
+        <p class="text-gray-400 mt-2">A CNN-powered system that classifies and identifies plant diseases through image recognition using TensorFlow and Keras.</p>
+      </div>
     </div>
-  </div>
-);
+  </section>
 
-// Contact Page
-const Contact = () => (
-  <div className="text-center space-y-6">
-    <h2 className="text-3xl font-bold text-cyan-400">Contact</h2>
-    <p className="text-gray-400">Let's collaborate or discuss your AI project. Reach out anytime!</p>
-    <div className="flex justify-center space-x-6">
-      <a href="mailto:m.rayanshahid5@gmail.com" className="hover:text-cyan-400"><Mail /></a>
-      <a href="https://github.com/" className="hover:text-cyan-400"><Github /></a>
-      <a href="https://linkedin.com/" className="hover:text-cyan-400"><Linkedin /></a>
+  <!-- Services -->
+  <section id="services" class="py-24 px-6 md:px-20 bg-gray-900 bg-opacity-70">
+    <h2 class="text-3xl font-bold mb-8 gradient-text">Services</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card p-6 rounded-xl">
+        <h3 class="text-xl font-semibold text-white">AI Model Development</h3>
+        <p class="text-gray-400 mt-2">Building end-to-end machine learning models — from data preprocessing to model deployment.</p>
+      </div>
+      <div class="card p-6 rounded-xl">
+        <h3 class="text-xl font-semibold text-white">Data Analysis & Visualization</h3>
+        <p class="text-gray-400 mt-2">Transforming raw data into actionable insights using Python, Pandas, and Matplotlib.</p>
+      </div>
+      <div class="card p-6 rounded-xl">
+        <h3 class="text-xl font-semibold text-white">AI Consulting</h3>
+        <p class="text-gray-400 mt-2">Providing AI guidance for businesses and individuals looking to integrate intelligence into their workflows.</p>
+      </div>
     </div>
-  </div>
-);
+  </section>
 
-// Main App
-export default function App() {
-  return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </Layout>
-    </Router>
-  );
-}
+  <!-- Contact -->
+  <section id="contact" class="py-24 px-6 md:px-20 text-center">
+    <h2 class="text-3xl font-bold mb-8 gradient-text">Contact</h2>
+    <p class="text-gray-400 mb-6">Let’s collaborate or build something impactful together.</p>
+    <a href="mailto:m.rayanshahid5@gmail.com" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition">m.rayanshahid5@gmail.com</a>
+
+    <div class="flex justify-center space-x-6 mt-8">
+      <a href="https://github.com/RayanAIX" target="_blank" class="text-gray-400 hover:text-blue-400">GitHub</a>
+      <a href="https://www.kaggle.com/muhammadrayanshahid" target="_blank" class="text-gray-400 hover:text-blue-400">Kaggle</a>
+      <a href="https://www.linkedin.com/in/muhammadrayanshahid/" target="_blank" class="text-gray-400 hover:text-blue-400">LinkedIn</a>
+      <a href="https://www.youtube.com/@ByteBrillianceAI" target="_blank" class="text-gray-400 hover:text-blue-400">YouTube</a>
+      <a href="https://x.com/MRayanShahid" target="_blank" class="text-gray-400 hover:text-blue-400">X</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-500 text-sm border-t border-gray-700 mt-10">
+    © <span id="year"></span> RayanAIX. Built by Muhammad Rayan Shahid.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
