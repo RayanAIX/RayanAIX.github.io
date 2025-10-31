@@ -1,80 +1,73 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Projects — RayanAIX</title>
-  <link rel="icon" href="/assets/favicon.svg" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Projects — RayanAIX</title>
+  <link rel="icon" href="/assets/favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>body{background:#07070a;color:#e6eef8;font-family:Inter,system-ui} .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04)}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>body{background:linear-gradient(180deg,#030308,#071124);color:#eaf2ff;font-family:Inter,system-ui}.glass{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(8px)} .chip{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px}</style>
 </head>
 <body>
   <header class="py-6">
-    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
-      <a href="/" class="text-white font-bold">RayanAIX</a>
-      <nav class="hidden md:flex gap-6 text-slate-300">
-        <a href="/about.html" class="hover:text-white">About</a>
-        <a href="/services.html" class="hover:text-white">Services</a>
-        <a href="/contact.html" class="hover:text-white">Contact</a>
-      </nav>
-    </div>
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between"><a href="/" class="text-white font-bold">RayanAIX</a><nav class="hidden md:flex gap-6 text-slate-300"><a href="/about.html">About</a><a href="/services.html">Services</a><a href="/contact.html">Contact</a></nav></div>
   </header>
 
   <main class="max-w-6xl mx-auto px-5 py-12">
-    <h1 class="text-3xl font-bold mb-6">Projects</h1>
+    <h1 class="text-3xl font-bold mb-4">Projects — Portfolio</h1>
+    <p class="text-slate-300 mb-6">Selected work: reproducible code, clear notebooks, and deployable demos.</p>
+
+    <!-- Filters -->
+    <div class="flex gap-3 items-center mb-8">
+      <button class="chip" data-filter="all">All</button>
+      <button class="chip" data-filter="cv">Computer Vision</button>
+      <button class="chip" data-filter="nlp">NLP</button>
+      <button class="chip" data-filter="kaggle">Kaggle</button>
+    </div>
 
     <!-- Featured -->
-    <section id="featured-kaggle" class="card p-6 rounded-xl mb-10">
+    <section id="featured-kaggle" class="glass p-6 rounded-2xl mb-10">
       <div class="grid md:grid-cols-3 gap-6">
         <div class="md:col-span-2">
           <div class="text-xs text-slate-400">FEATURED</div>
-          <h2 class="text-2xl font-bold mt-2">Titanic Survival Prediction — Production-ready pipeline</h2>
-          <p class="text-slate-300 mt-4">Complete EDA, feature engineering, stacking models and clear reproducible notebook. Emphasis on robust validation and deployment notes.</p>
-
+          <h2 class="text-2xl font-bold mt-2">Titanic Survival Prediction — production-ready pipeline</h2>
+          <p class="text-slate-300 mt-4">Complete EDA, feature engineering, model stacking and reproducible notebook. Production notes included.</p>
           <div class="mt-6 flex gap-3">
-            <a href="https://github.com/RayanAIX" class="px-4 py-2 rounded-md bg-sky-600 text-black font-semibold">View on GitHub</a>
-            <a href="https://www.kaggle.com/muhammadrayanshahid" class="px-4 py-2 rounded-md border border-white/6">Open Kaggle Notebook</a>
+            <a href="https://github.com/RayanAIX" class="px-4 py-2 rounded-md bg-sky-600 text-black font-semibold">View Code</a>
+            <a href="https://www.kaggle.com/muhammadrayanshahid" class="px-4 py-2 rounded-md border border-white/6">Open Notebook</a>
           </div>
         </div>
-
-        <div>
-          <img src="/assets/featured-screenshot.jpg" alt="screenshot" class="rounded-lg object-cover w-full h-40"/>
-        </div>
+        <div><img src="/assets/featured-screenshot.jpg" class="rounded-lg object-cover w-full h-40" alt=""></div>
       </div>
     </section>
 
-    <!-- Grid of projects -->
-    <div class="grid md:grid-cols-3 gap-6">
-      <!-- Project card template - duplicate/update in your repo -->
-      <article class="card p-5 rounded-lg">
+    <!-- Grid -->
+    <div id="grid" class="grid md:grid-cols-3 gap-6">
+      <!-- Card example -->
+      <article class="project glass p-5 rounded-lg" data-type="cv">
         <div class="text-xs text-slate-400">Computer Vision</div>
         <h3 class="font-semibold mt-2">Emotion Classifier</h3>
-        <p class="text-slate-300 mt-2 text-sm">CNN based model for facial emotion recognition. Includes dataset, training scripts and evaluation metrics.</p>
+        <p class="text-slate-300 mt-2 text-sm">CNN-based facial emotion recognition with training scripts and eval.</p>
         <div class="mt-4 flex gap-3 text-sm">
           <a href="https://github.com/RayanAIX" class="text-sky-300">GitHub</a>
           <a href="https://www.youtube.com/@ByteBrillianceAI" class="text-sky-300">Demo</a>
         </div>
       </article>
 
-      <article class="card p-5 rounded-lg">
+      <article class="project glass p-5 rounded-lg" data-type="nlp">
         <div class="text-xs text-slate-400">NLP</div>
         <h3 class="font-semibold mt-2">Fake News Detection</h3>
-        <p class="text-slate-300 mt-2 text-sm">TF-IDF + linear models with calibrated thresholds; built a lightweight inference pipeline for media monitoring.</p>
-        <div class="mt-4 flex gap-3 text-sm">
-          <a href="https://github.com/RayanAIX" class="text-sky-300">GitHub</a>
-        </div>
+        <p class="text-slate-300 mt-2 text-sm">TF-IDF + calibration for media monitoring.</p>
+        <div class="mt-4"><a href="https://github.com/RayanAIX" class="text-sky-300">GitHub</a></div>
       </article>
 
-      <article class="card p-5 rounded-lg">
+      <article class="project glass p-5 rounded-lg" data-type="cv">
         <div class="text-xs text-slate-400">CV</div>
         <h3 class="font-semibold mt-2">Plant Disease Detection</h3>
-        <p class="text-slate-300 mt-2 text-sm">Transfer learning approach with augmentation, achieving strong class-balanced accuracy on leaf datasets.</p>
-        <div class="mt-4 flex gap-3 text-sm">
-          <a href="https://github.com/RayanAIX" class="text-sky-300">GitHub</a>
-        </div>
+        <p class="text-slate-300 mt-2 text-sm">Transfer learning + augmentation pipeline.</p>
+        <div class="mt-4"><a href="https://github.com/RayanAIX" class="text-sky-300">GitHub</a></div>
       </article>
 
-      <!-- Add more -->
+      <!-- add more cards similarly -->
     </div>
 
     <div class="mt-10 text-center">
@@ -82,7 +75,20 @@
     </div>
   </main>
 
-  <footer class="py-8 text-center text-slate-400 border-t border-white/5">© <span id="yrp"></span> RayanAIX</footer>
-  <script>document.getElementById('yrp').textContent=new Date().getFullYear()</script>
+  <footer class="py-8 text-center text-slate-400 border-t border-white/5">© <span id="yrProj"></span> RayanAIX</footer>
+
+  <script>
+    document.getElementById('yrProj').textContent=new Date().getFullYear();
+    // simple filter
+    document.querySelectorAll('[data-filter]').forEach(btn=>{
+      btn.addEventListener('click',()=> {
+        const f = btn.getAttribute('data-filter');
+        document.querySelectorAll('.project').forEach(card=>{
+          if(f==='all') card.style.display='block';
+          else card.style.display = card.getAttribute('data-type')===f? 'block' : 'none';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
